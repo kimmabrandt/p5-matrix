@@ -18,6 +18,9 @@
           x += symbolSize;
       }
       textSize(symbolSize);
+      // rectangle and text scale from the center
+      textAlign(CENTER, CENTER);
+      rectMode(CENTER);
     }
 
 
@@ -27,6 +30,7 @@
       streams.forEach(function(stream) {
           stream.render();
       });
+      drawTitleText();
     }
 
 
@@ -53,7 +57,6 @@
                       0x22B0 + round(random(0, 96))
                   );
               }
-
         }
       }
 
@@ -100,6 +103,32 @@
             symbol.setToRandomSymbol();
         });
       }
-
-
     }
+    
+
+    ////--- TITLE TEXT FUNCTION ---////
+    function drawTitleText() {
+      push();
+      translate(width/2, height/2);
+
+      // outer rect
+      strokeWeight(1);
+      stroke(178,255,255);
+      noFill();
+      rect(0, 0, 520, 110);
+
+      // rectangle
+      strokeWeight(1);
+      stroke(178,255,255);
+      fill(0);
+      rect(0, 0, 500, 90);
+
+      // text/title
+      fill(178, 255, 255);
+      noStroke();
+      textFont('UnifrakturMaguntia');
+      textSize(48);
+      text('⟢⟁ Kim Shadiest ⟁⟣', 0, 0);
+      pop();
+
+    };
